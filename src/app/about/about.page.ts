@@ -10,7 +10,7 @@ import  * as moment  from 'moment';
 
 export class AboutPage {
 
-  events: any;
+  events: [];
 
 constructor(private apiCallService: ApiCallService){
 }
@@ -30,12 +30,9 @@ console.log(this.events)
 }
 
 getDate(date){
-  var time = moment(date).format('D MMM YYYY');
+  var time = moment(date).format('D / MM / YYYY à H:mm');
   return time;
 }
-getTime(time){
-  var D = moment(time).format('H:mm');
-  return D;
-}
+
 
 }
