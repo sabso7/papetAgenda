@@ -16,8 +16,8 @@ export class ApiCallService {
   constructor(private http: HttpClient) {}
 
 
-  getEvent(): Observable<Event[]> {
-    return this.http.get<Event[]>(this.dataUrl);
+  getEvent(): Observable<any> {
+    return this.http.get<any>(this.dataUrl);
   }
    
 

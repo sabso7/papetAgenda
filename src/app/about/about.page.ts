@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ApiCallService } from "../api-call.service"
-import { Event } from '../event'
 import  * as moment  from 'moment';
 
 @Component({
@@ -11,7 +10,7 @@ import  * as moment  from 'moment';
 
 export class AboutPage {
 
-  events: Event[];
+  events: any;
 
 constructor(private apiCallService: ApiCallService){
 }
@@ -23,20 +22,20 @@ ngOnInit(){
 
 showEvent() {
   this.apiCallService.getEvent()
-  .subscribe((eventArray) => {
-this.events = eventArray.rows;
+  .subscribe((data) => {
+this.events = data.rows;
 console.log(this.events)
 
 })
 }
 
 getDate(date){
-  date = moment().format('D MMM YYYY');
-  return date;
+  var time = moment(date).format('D MMM YYYY');
+  return time;
 }
 getTime(time){
-  time = moment().format('H:mm');
-  return time;
+  var D = moment(time).format('H:mm');
+  return D;
 }
 
 }
