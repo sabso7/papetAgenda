@@ -1,6 +1,12 @@
 .events {
    list-style-type: none; 
 }
+.event{
+    background: linear-gradient(#ffff99, #99ff99);
+    border-radius: 12;
+    border-color: rgb(68, 67, 67);
+    border-width: 10px;
+}
 .title{
     font-size: 3em;
     text-align: center;
@@ -12,8 +18,10 @@
 
 }
 .location{
-
+text-align: center;
+color: black;
 }
 .description{
-
+text-align: center;
+font-size: 2em;
 }

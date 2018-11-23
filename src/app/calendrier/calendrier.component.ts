@@ -42,7 +42,7 @@ export class CalendrierComponent implements OnInit {
     .subscribe((data) => {
   this.events = data.rows;
   this.events.forEach(element => {
-    var time = moment(element.doc.start_time).format('D');
+    var time = moment(element.doc.start_time).format('D MMM');
     this.tabDateEvent.push(time)
   });
   })
