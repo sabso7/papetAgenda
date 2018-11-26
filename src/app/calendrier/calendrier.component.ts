@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from "../api-call.service";
 import  * as moment  from 'moment';
 import { element } from '@angular/core/src/render3';
+import { LowerCasePipe } from '@angular/common';
 @Component({
   selector: 'app-calendrier',
   templateUrl: './calendrier.component.html',
@@ -21,15 +22,15 @@ export class CalendrierComponent implements OnInit {
   
   constructor(private apiCallService: ApiCallService) { 
     this.ionViewWillEnter(), this.showEvent() 
-    console.log(this.tabDateEvent)
+    
   }
   ngOnInit() {}
 
 
-  checkEvent(days){
+  checkEvent(days , currentMonth , currentYear){
   var ilYaEvent = false;
     this.tabDateEvent.forEach(element =>{
-        if(element == days){
+        if(element == days +' ' + currentMonth.toLowerCase()+ ' ' + currentYear){
             ilYaEvent = true
             return ilYaEvent
         }
@@ -42,7 +43,8 @@ export class CalendrierComponent implements OnInit {
     .subscribe((data) => {
   this.events = data.rows;
   this.events.forEach(element => {
-    var time = moment(element.doc.start_time).format('D MMM');
+    moment.locale('fr');
+    var time = moment(element.doc.start_time).format('D MMMM YYYY');
     this.tabDateEvent.push(time)
   });
   })
