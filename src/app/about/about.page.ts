@@ -19,13 +19,11 @@ ngOnInit(){
   this.showEvent();
 }
 
-
 showEvent() {
   this.apiCallService.getEvent()
   .subscribe((data) => {
 this.events = data.rows;
 console.log(this.events)
-
 })
 }
 

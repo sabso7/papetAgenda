@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from "../api-call.service";
-import * as moment from 'moment';
+import  * as moment  from 'moment';
+import { element } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-calendrier',
@@ -17,11 +18,37 @@ export class CalendrierComponent implements OnInit {
   currentYear: any;
   currentDate: any;
   events: any;
-
-  constructor() { this.ionViewWillEnter() }
-
-  ngOnInit() {
+  tabDateEvent = [];
+  
+  constructor(private apiCallService: ApiCallService) { 
+    this.ionViewWillEnter(), this.showEvent() 
+    console.log(this.tabDateEvent)
   }
+  ngOnInit() {}
+
+
+  checkEvent(days){
+  var ilYaEvent = false;
+    this.tabDateEvent.forEach(element =>{
+        if(element == days){
+            ilYaEvent = true
+            return ilYaEvent
+        }
+    })
+    return ilYaEvent;
+  }
+
+  showEvent() {
+    this.apiCallService.getEvent()
+    .subscribe((data) => {
+  this.events = data.rows;
+  this.events.forEach(element => {
+    var time = moment(element.doc.start_time).format('D MMM');
+    this.tabDateEvent.push(time)
+  });
+  })
+  }
+
   ionViewWillEnter() {
     this.date = new Date();
     this.monthNames = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre"];
