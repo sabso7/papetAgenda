@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ModalDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="event">
+    <ul class="events">
+        <li>
+            <ion-card class='event'>
+              <ion-card-header>
+                <ion-card-content class="start">Le {{getDate(event.doc.start_time)}}</ion-card-content>
+                <ion-card-title class="title">{{event.doc.title}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="description">{{event.doc.description}}</ion-card-content>
+              <ion-card-content class="location">Lieu: {{event.doc.location}}</ion-card-content>
+              <ion-card-content class="end">Fin: {{getDate(event.doc.end_time)}}</ion-card-content>
+            </ion-card>
+        </li>
+      </ul>
+    </div>
+      <br>
+<ion-button (click)="dismiss()">Close</ion-button>
+</ion-content>

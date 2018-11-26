@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from "../api-call.service";
 import  * as moment  from 'moment';
-import { element } from '@angular/core/src/render3';
-<<<<<<< HEAD
-import { LowerCasePipe } from '@angular/common';
-=======
+import { ModalController } from '@ionic/angular';
+import { ModalDetailsPage } from '../modal-details/modal-details.page';
 
->>>>>>> 8a5da7535152c2f4cb0fbfe2ab28ad19acd586ab
 @Component({
   selector: 'app-calendrier',
   templateUrl: './calendrier.component.html',
@@ -24,7 +21,7 @@ export class CalendrierComponent implements OnInit {
   events: any;
   tabDateEvent = [];
   
-  constructor(private apiCallService: ApiCallService) { 
+  constructor(private apiCallService: ApiCallService, public modalController: ModalController) { 
     this.ionViewWillEnter(), this.showEvent() 
     
   }
@@ -42,6 +39,23 @@ export class CalendrierComponent implements OnInit {
     return ilYaEvent;
   }
 
+  getAllData(){
+    this.apiCallService.getEvent()
+    .subscribe((data) => {
+  this.events = data.rows;
+  })
+  }
+
+  getId(day, currentMonth , currentYear){
+    this.getAllData();
+    this.events.forEach(element => {
+      if(moment(element.doc.start_time).format('D MMMM YYYY') == day +' ' + currentMonth.toLowerCase()+ ' ' + currentYear){
+        console.log(element.id);
+        this.presentModal(element.id);
+      }
+    })
+  }
+
   showEvent() {
     this.apiCallService.getEvent()
     .subscribe((data) => {
@@ -52,6 +66,14 @@ export class CalendrierComponent implements OnInit {
     this.tabDateEvent.push(time)
   });
   })
+  }
+
+  async presentModal(id) {
+    const modal = await this.modalController.create({
+      component: ModalDetailsPage,
+      componentProps: {value:id}
+    });
+    return await modal.present();
   }
 
   ionViewWillEnter() {
