@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiCallService } from "../api-call.service";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-calendrier',
@@ -14,11 +16,11 @@ export class CalendrierComponent implements OnInit {
   currentMonth: any;
   currentYear: any;
   currentDate: any;
+  events: any;
 
   constructor() { this.ionViewWillEnter() }
 
   ngOnInit() {
-    
   }
   ionViewWillEnter() {
     this.date = new Date();
@@ -69,4 +71,5 @@ export class CalendrierComponent implements OnInit {
     this.date = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0);
     this.getDaysOfMonth();
   }
+
 }

@@ -4,19 +4,19 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-<ul class="events">
-  <li *ngFor="let event of events">
+  <ul class="events">
+    <li *ngFor="let event of events">
       <div *ngIf="event.doc.title">
-    <ion-card class = 'event'>
-      <ion-card-header>
-        <ion-card-title class="title">{{event.doc.title}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content class="description">Description: {{event.doc.description}}</ion-card-content>
-      <ion-card-content class="location">Lieu: {{event.doc.location}}</ion-card-content>
-      <ion-card-content class="start">Début: {{getDate(event.doc.start_time)}}</ion-card-content>
-      <ion-card-content class="end">Fin: {{getDate(event.doc.end_time)}}</ion-card-content>
-    </ion-card>
-  </div>
-  </li>
-</ul>
+        <ion-card class='event'>
+          <ion-card-header>
+            <ion-card-content class="start">Le {{getDate(event.doc.start_time)}}</ion-card-content>
+            <ion-card-title class="title">{{event.doc.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="description">{{event.doc.description}}</ion-card-content>
+          <ion-card-content class="location">Lieu: {{event.doc.location}}</ion-card-content>
+          <ion-card-content class="end">Fin: {{getDate(event.doc.end_time)}}</ion-card-content>
+        </ion-card>
+      </div>
+    </li>
+  </ul>
 </ion-content>
