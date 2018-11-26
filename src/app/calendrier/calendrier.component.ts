@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from "../api-call.service";
 import  * as moment  from 'moment';
 import { element } from '@angular/core/src/render3';
+<<<<<<< HEAD
 import { LowerCasePipe } from '@angular/common';
+=======
+
+>>>>>>> 8a5da7535152c2f4cb0fbfe2ab28ad19acd586ab
 @Component({
   selector: 'app-calendrier',
   templateUrl: './calendrier.component.html',
@@ -99,4 +103,5 @@ export class CalendrierComponent implements OnInit {
     this.date = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0);
     this.getDaysOfMonth();
   }
+
 }
