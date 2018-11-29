@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
 import { AboutPage } from '../about/about.page';
+import { AddEventPage } from '../add-event/add-event.page';
 
 const routes: Routes = [
   {
@@ -25,13 +25,19 @@ const routes: Routes = [
         outlet: 'about',
         component: AboutPage
       },
+      {
+        path: 'addEvent',
+        outlet: 'addEvent',
+        component: AddEventPage
+      },
+      {
+        path: 'addEvent/:date',
+        outlet: 'addEvent',
+        component: AddEventPage
+      },
+      
     ]
   },
-  {
-    path: '',
-    redirectTo: '/tabs/(home:home)',
-    pathMatch: 'full'
-  }
 ];
 
 @NgModule({

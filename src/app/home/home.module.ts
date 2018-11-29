@@ -7,12 +7,13 @@ import { HomePage } from './home.page';
 import {CalendrierComponent } from '../calendrier/calendrier.component';
 import { ModalDetailsPage } from '../modal-details/modal-details.page';
 
+
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: HomePage }])
+    RouterModule.forChild([{ path: '', component: HomePage, }])
   ],
   declarations: [HomePage, CalendrierComponent, ModalDetailsPage],
   entryComponents: [ModalDetailsPage]

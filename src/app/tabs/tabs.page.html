@@ -6,8 +6,8 @@
   <ion-tab tab="about">
     <ion-router-outlet name="about"></ion-router-outlet>
   </ion-tab>
-  <ion-tab tab="contact">
-    <ion-router-outlet name="contact"></ion-router-outlet>
+  <ion-tab tab="addEvent">
+    <ion-router-outlet name="addEvent"></ion-router-outlet>
   </ion-tab>
 
   <ion-tab-bar slot="bottom">
@@ -20,6 +20,11 @@
     <ion-tab-button tab="about" href="/tabs/(about:about)">
       <ion-icon name="information-circle"></ion-icon>
       <ion-label>Events</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="addEvent" href="/tabs/(addEvent:addEvent)">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>Add Events</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>
