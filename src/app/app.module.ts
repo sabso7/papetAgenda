@@ -8,6 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 import { AddEventPageModule } from './add-event/add-event.module';
 
 
@@ -15,7 +17,7 @@ import { AddEventPageModule } from './add-event/add-event.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , HttpClientModule, FormsModule, AddEventPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , HttpClientModule, FormsModule, AddEventPageModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,
     SplashScreen,

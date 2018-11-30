@@ -21,12 +21,16 @@ export class CalendrierComponent implements OnInit {
   currentDate: any;
   events: any;
   tabDateEvent = [];
+  user: string;
   
   constructor(private apiCallService: ApiCallService, public modalController: ModalController, public router: Router) { 
     this.ionViewWillEnter(), this.showEvent() ;
     
   }
-  ngOnInit() {}
+  ngOnInit() {
+   //  this.login.currentUser.subscribe(user => this.user = user)
+   // console.log("hello " + this.user)
+  }
 
   getDate(day, month , year){
    var dateRecup = this.router.navigateByUrl("app/tabs/(addEvent:addEvent/"+day +' '+month +' '+ year +")");
