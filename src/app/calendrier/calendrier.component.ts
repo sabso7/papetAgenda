@@ -3,6 +3,7 @@ import { ApiCallService } from "../api-call.service";
 import  * as moment  from 'moment';
 import { ModalController } from '@ionic/angular';
 import { ModalDetailsPage } from '../modal-details/modal-details.page';
+import { LoginPage } from "../login/login.page";
 
 @Component({
   selector: 'app-calendrier',
@@ -20,12 +21,16 @@ export class CalendrierComponent implements OnInit {
   currentDate: any;
   events: any;
   tabDateEvent = [];
+  user: string;
   
-  constructor(private apiCallService: ApiCallService, public modalController: ModalController) { 
+  constructor(private apiCallService: ApiCallService, public modalController: ModalController, private login: LoginPage) { 
     this.ionViewWillEnter(), this.showEvent() 
     
   }
-  ngOnInit() {}
+  ngOnInit() {
+   //  this.login.currentUser.subscribe(user => this.user = user)
+   // console.log("hello " + this.user)
+  }
 
 
   checkEvent(days , currentMonth , currentYear){

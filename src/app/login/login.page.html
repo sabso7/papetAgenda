@@ -4,18 +4,18 @@
   </ion-title>
 </ion-header>
 <ion-content padding>
-  <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class= "form">
+  <form #loginForm="ngForm" (ngSubmit)="validate()" autocomplete="off" class="form">
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-input placeholder="Email" name="username" id="loginField" type="text" required [(ngModel)]="username" class = "input"
-            #email></ion-input>
+          <ion-input placeholder="Email" name="username" id="loginField" type="text" required
+            [(ngModel)]="username" class="input" #email></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <div *ngIf="error" class="alert alert-danger">{{error | uppercase}}</div>
         <ion-button block color="primary" type="submit">Login
         </ion-button>
       </ion-col>

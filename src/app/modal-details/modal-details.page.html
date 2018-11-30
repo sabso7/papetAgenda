@@ -14,7 +14,7 @@
                 <ion-card-title class="title">{{event.doc.title}}</ion-card-title>
               </ion-card-header>
               <ion-card-content class="description">{{event.doc.description}}</ion-card-content>
-              <ion-card-content class="location">Lieu: {{event.doc.location}}</ion-card-content>
+              <ion-card-content class="location">Lieu: {{event.doc.location | lowercase}}</ion-card-content>
               <ion-card-content class="end">Fin: {{getDate(event.doc.end_time)}}</ion-card-content>
             </ion-card>
         </li>
