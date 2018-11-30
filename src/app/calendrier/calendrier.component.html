@@ -20,7 +20,9 @@
       <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
       <ion-col col-1 *ngFor="let day of daysInThisMonth">
         <span  class="currentDate" *ngIf="checkEvent(day,currentMonth,currentYear);else otherDate" (click)="getId(day, currentMonth, currentYear)">{{day}}</span>
-        <ng-template #otherDate class="otherDate">{{day}}<span><ion-button [href]="'/addEvent/'+ day  + currentMonth +currentYear">Hello</ion-button></span></ng-template>
+        <ng-template #otherDate class="otherDate">{{day}}<span>
+          <ion-button (click)="getDate(day,currentMonth,currentYear)">test</ion-button>
+        </span></ng-template>
       </ion-col>
       <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
     </ion-row>

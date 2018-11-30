@@ -6,7 +6,6 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 import { TabsPage } from './tabs.page';
 import { AboutPageModule } from '../about/about.module';
 import { HomePageModule } from '../home/home.module';
-import { AddEventPage } from '../add-event/add-event.page';
 import { AddEventPageModule } from '../add-event/add-event.module';
 
 

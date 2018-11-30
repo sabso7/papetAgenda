@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-event',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-event.page.scss'],
 })
 export class AddEventPage implements OnInit {
+ date= String;
+  constructor(public router: ActivatedRoute ) {
+this.date = this.router.snapshot.params.date
 
-  constructor(Router angular) {
-this.router.navigate()
    }
+
 
   ngOnInit() {
   }

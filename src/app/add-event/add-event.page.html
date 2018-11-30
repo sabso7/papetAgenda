@@ -5,33 +5,23 @@
 </ion-header>
 
 <ion-content padding>
-
- <ion-title>Ajouter un event</ion-title>
-  <ion-item>
-    <ion-label color="primary">Titre de l'event</ion-label>
-    <ion-input placeholder="add title"></ion-input>
-  </ion-item>
-  <br>
-  <ion-item>
-    <ion-label color="primary">Titre de l'event</ion-label>
-    <ion-input placeholder="Text Input"></ion-input>
-  </ion-item>
-  <br>
-  <ion-item>
-    <ion-label color="primary">Titre de l'event</ion-label>
-    <ion-input placeholder="Text Input"></ion-input>
-  </ion-item>
-  <br>
-  <ion-item>
-    <ion-label color="primary">Titre de l'event</ion-label>
-    <ion-input placeholder="Text Input"></ion-input>
-  </ion-item>
-  <br>
-  <ion-item>
-    <ion-label color="primary">Titre de l'event</ion-label>
-    <ion-input placeholder="Text Input"></ion-input>
-  </ion-item>
-  <br>
-  <ion-button>Ajouter</ion-button>
-
+  <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class= "form">
+    <ion-title>Ajouter un event</ion-title>
+    <ion-item>
+      <ion-label color="primary">Titre de l'event</ion-label>
+      <ion-input placeholder="add title" [(ngModel)]= "title"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label color="primary">Date de l'event</ion-label>
+      <ion-item>{{date}}</ion-item>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label color="primary">Description</ion-label>
+      <ion-input placeholder="Text Input"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button type="submit">Ajouter</ion-button>
+  </form>
 </ion-content>

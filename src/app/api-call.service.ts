@@ -19,6 +19,10 @@ export class ApiCallService {
   getEvent(): Observable<any> {
     return this.http.get<any>(this.dataUrl);
   }
+
+  postEvent(data): Observable<any>{
+    return this.http.post(this.dataUrl,data,);
+  }
    
 
 }
