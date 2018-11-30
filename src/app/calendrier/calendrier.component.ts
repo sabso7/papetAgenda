@@ -3,7 +3,7 @@ import { ApiCallService } from "../api-call.service";
 import  * as moment  from 'moment';
 import { ModalController } from '@ionic/angular';
 import { ModalDetailsPage } from '../modal-details/modal-details.page';
-import { LoginPage } from "../login/login.page";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calendrier',
@@ -23,8 +23,8 @@ export class CalendrierComponent implements OnInit {
   tabDateEvent = [];
   user: string;
   
-  constructor(private apiCallService: ApiCallService, public modalController: ModalController, private login: LoginPage) { 
-    this.ionViewWillEnter(), this.showEvent() 
+  constructor(private apiCallService: ApiCallService, public modalController: ModalController, public router: Router) { 
+    this.ionViewWillEnter(), this.showEvent() ;
     
   }
   ngOnInit() {
@@ -32,7 +32,10 @@ export class CalendrierComponent implements OnInit {
    // console.log("hello " + this.user)
   }
 
-
+  getDate(day, month , year){
+   var dateRecup = this.router.navigateByUrl("app/tabs/(addEvent:addEvent/"+day +' '+month +' '+ year +")");
+  }
+  
   checkEvent(days , currentMonth , currentYear){
   var ilYaEvent = false;
     this.tabDateEvent.forEach(element =>{
