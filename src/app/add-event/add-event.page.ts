@@ -8,6 +8,9 @@ import { Route, Router, ActivatedRoute } from '@angular/router';
 })
 export class AddEventPage implements OnInit {
  date= String;
+ title: String;
+ description: String;
+ 
   constructor(public router: ActivatedRoute ) {
 this.date = this.router.snapshot.params.date
 
@@ -15,6 +18,12 @@ this.date = this.router.snapshot.params.date
 
 
   ngOnInit() {
+  }
+
+  getData(){
+    console.log(this.title)
+    console.log(this.description)
+
   }
 
 }
